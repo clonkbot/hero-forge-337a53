@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --comic-yellow: #FFD700;
+  --comic-red: #E53935;
+  --comic-blue: #1E88E5;
+  --comic-pink: #FF4081;
+  --comic-black: #1A1A1A;
+  --comic-cream: #F5F0E1;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Comic Neue', cursive;
+  background-color: var(--comic-cream);
+  overflow-x: hidden;
+}
+
+/* Custom font classes */
+.font-bangers {
+  font-family: 'Bangers', cursive;
+  letter-spacing: 0.05em;
+}
+
+.font-comic {
+  font-family: 'Comic Neue', cursive;
+}
+
+/* Halftone pattern utility */
+.halftone {
+  background-image: radial-gradient(circle, #000 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Comic panel hover effects */
+.comic-panel:hover {
+  transform: scale(1.02) rotate(-1deg);
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--comic-yellow);
+  color: var(--comic-black);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--comic-cream);
+  border: 2px solid var(--comic-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--comic-red);
+  border: 2px solid var(--comic-black);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--comic-pink);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 4px solid var(--comic-yellow);
+  outline-offset: 2px;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Comic text shadow utility */
+.comic-shadow {
+  text-shadow: 3px 3px 0px #000;
+}
+
+/* Action word burst effect */
+@keyframes burst {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.burst {
+  animation: burst 0.5s ease-in-out infinite;
+}
+
+/* Input placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Ensure images don't break layout */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
